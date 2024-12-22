@@ -1,0 +1,226 @@
+/* ----- Reset body ----- */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+    font-family: 'Inconsolata';
+    font-size: 2rem;
+    color: var(--color-ember);
+    letter-spacing: 0.25rem;
+}
+
+/* ----- Main container ----- */
+.container {
+  /* No height:100% or display:flex here */
+  max-width: 1000px;
+  margin: 0 auto; /* centers horizontally */
+  /*border: 2px dotted black; */
+  padding: 20px;
+}
+
+/* ----- Hero ----- */
+.Hero-Div {
+  position: relative;
+  width: 100%;
+  height: 700px; /* fixed hero height */
+  /*border: 2px dotted blue;*/
+  overflow: hidden;
+}
+
+/* Clouds fill the hero space */
+.cloud-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Each cloud is absolutely positioned within .cloud-container */
+.cloud-div {
+  position: absolute;
+  max-width: 30%;
+  /*border: dashed;*/
+}
+
+/* Tweak top/left to shift each cloud */
+#cloud-1 { top:100px; left: 0%; }
+#cloud-2 { top: 50px; left: 55%; }
+#cloud-3 { top: 250px;  left: 60%; }
+#cloud-4 { top: 360px; left:10%; }
+
+/* Cloud images scale properly within .cloud-div */
+.cloud-img {
+  filter: drop-shadow(0 8px 5px rgba(0, 0, 0, 0.3));
+  transform-style: preserve-3d; /* allows 3D transforms */
+  animation: floatCloud 8s ease-in-out infinite;
+}
+
+/* Slightly vary each cloud's timing/duration for a more organic look */
+#cloud-1 .cloud-img {
+  animation-delay: 0s;
+  animation-duration: 7s;
+}
+#cloud-2 .cloud-img {
+  animation-delay: 2s;
+  animation-duration: 9s;
+}
+#cloud-3 .cloud-img {
+  animation-delay: 4s;
+  animation-duration: 7.5s;
+}
+#cloud-4 .cloud-img {
+  animation-delay: 1s;
+  animation-duration: 10s;
+}
+
+/* Keyframes: small up/down, side-to-side, and a gentle X-rotation */
+@keyframes floatCloud {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+  }
+  50% {
+    transform: translate3d(30px, -10px, 0) rotateX(10deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg);
+  }
+}
+
+/* Position heading inside hero (optional) */
+.Hero-Div h2 {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+    font-family: 'Noto Sans';
+    letter-spacing: 0.5rem;
+    font-weight: 300;
+}
+
+
+
+/* ----Hero--- */
+
+/* ----Intro Section---- */
+.intro-section{
+    display: flex; 
+    flex-direction: row;
+}
+
+/* ----Intro Section---- */
+
+/* ----Projects Section---- */
+.projects-section {
+    display: flex; 
+    flex-direction: column;
+}
+.projects-div {
+    display: flex; 
+    flex-wrap: wrap; /* Allows the cards to wrap to a new line */
+    gap: 1rem; /* Adds spacing between cards */
+}
+.project-card {
+    display: block;
+    position: relative;
+    margin: 1rem;
+    width: 25rem; /* Adjust as needed */
+    height: 250px; /* Adjust as needed */
+    border-radius: 15px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Initial shadow */
+}
+
+#project-card-1 {
+    background: url('assets/MNIST1.jpg') no-repeat center center / cover; 
+}
+
+/* Hover effect for pop-out and shadow */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Card content styling */
+.card-content {
+    position: absolute;
+    bottom: 50%;
+    left: 20px;
+    width: 80%; /* Ensure it fits within the card */
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.0); /* Semi-transparent background for text */
+    border-radius: 10px;
+    text-align: justify;
+}
+
+/* Text styling */
+.card-content h2 {
+    letter-spacing: 0.1rem;
+    font-size: 1.1rem;
+    font-weight:400;
+    margin: 0;
+    line-height: 1.5;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* ----Projects Section---- */
+
+/* ----iOS Card---- */
+.iOS-Card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    padding: 16px;
+    border: 2px solid #4c3134; /* Using 'ash' color */
+    border-radius: 12px;
+    font-family: "Noto Sans Math";
+    color: #4c3134; /* 'ash' color */
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ios-card-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.text-section {
+    flex: 1;
+}
+
+.text-section h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.text-section ul {
+    font-family: "Inconsolata";
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.text-section li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.image-section {
+    margin-left: 16px;
+}
+
+.image-section img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+/* ----iOS Card CSS---- */
