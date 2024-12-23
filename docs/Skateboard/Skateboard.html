@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turning a Skateboard Into an Instrument</title>
+    <link href="Skateboard.css" rel="stylesheet">
+    <link href="../index.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Math&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Noto+Sans+Math&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Noto+Sans+Math&family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://threejs.org/examples/js/loaders/OBJLoader.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@v0.149.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.149.0/examples/jsm/"
+        }
+      }
+    </script>
+    
+</head>
+<body>
+    <div class="navbar">
+        <div class="inner-nav-container">
+            <a href="../index.html" class="nav-name">Ben Pearman</a>
+            <div class="menu">
+                <img src="../assets/Menu%20ICon.png" alt="Menu Icon">
+                <div class="dropdown">
+                    <a href="index.html">Home</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container">
+        <h1>Turning a Skateboard Into an Instrument</h1>
+        <h2>built by ben</h2>
+   
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/69r0n7SjhuU?si=jzJVGw-_njam8iUS" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p>
+            I was recently tasked with creating a new type of instrument that takes a physical input, and processes that input digitally to create sound. You could say that an electric guitar sort of fits into this category, 
+            but I was going for something more digital, and a lot more experimental. Part of the inspiration for this project came from Malloch & Wanderley’s “T-Stick” [1] which was basically a PVC pipe that they covered 
+            in capacitive sensors allowing people to play it.
+        </p>
+        <p>
+            As I paced around my house wondering what other types of shapes or objects would work well as an instrument, I started thinking about how I like to experience the physical world and if there was any 
+            way I could translate those activities into sound. Rock climbing, skiing, riding a bike, they seemed like the weren’t maneuverable enough to “perform” as an instrument. I combed through all 
+            the activities I’ve tried over the years and then finally the answer seemed totally obvious, it had to be a skateboard.
+            As a bit of a side note I’m going to say something that might sound controversial, but it serves to justify my choice.
+        </p>
+        
+        <div class="callout">
+            Skateboarding is the most technically difficult sport that exists. 
+        </div>
+        <p>
+        When I realized that, it seemed obvious that a skateboard could be used as an instrument. Let me explain.</p>
+        
+        <p>
+        I’ve tried pretty much every sport you can imagine at some point, and I’ve also taught a lot of people other technical sports like skiing and rock climbing, and I am absolutely convinced that none of 
+            them are more challenging, and that’s why it’s perfect for this project. Here’s an analogy: if you gave an average person a violin and told them to play hot cross buns, or any other elementary song, 
+            it would sound like a chalkboard playing DDR with a drawer of cutlery. They would be lucky if they could play the first two notes in anything close to the right rhythm. That’s skateboarding. 
+            Almost every person that I’ve tried to teach how to skateboard has landed on their butt within about 10 seconds. It’s not just about the learning curve, the ceiling is also ridiculously high.
+        </p>
+        
+        <p>
+        I want to mention that I’m using the word “technical” deliberately, since I don’t think it’s the most challenging outright. Obviously, I am physically stronger than the 14 year old 
+            skateboarders in the Olympics but the difference between our technique is heaven and earth.
+        I could go on about this for a while, but I’ve said enough to justify my argument for choosing a skateboard. In short, I think there’s a lot of similarities between it 
+            and playing an instrument. Music also plays a huge role in skateboarding culture, which you can sort of pick up on 
+            by watching films like <a style = "color: #ff3b8b" href="https://www.youtube.com/watch?v=e5I9C6ntrxA&t=227s">Pretty Sweet</a> [1], anyway, onwards into development.
+        </p>
+        
+        <h3>How To Make Sound</h3>
+        <p>
+        The key physical input that a skateboard creates is motion, so all I had to do was attach an inertial measurement unit (IMU) to a skateboard and that data would be easy to get. The hard part was mapping that input into sound. I experimented with a few methods here like linking it to a DAW through MIDI, but I really wanted it to be mobile. It just didn’t feel like a real instrument if there was a USB cable connecting the skateboard to the computer. Sure, I could use Bluetooth MIDI, but then I’m still tethered to a laptop which feels almost as bad.
+        <span style="color: #ff3b3b">The only solution was to go rogue</span>, it had to be fully off grid.
+
+        </p>
+        <div class="image-block image-block-right image-block-list">
+            
+            <div>
+                <p>
+                    <span style="color: #ff3b3b">Here’s what’s inside the box:</span>
+                </p>
+                <ul>
+                    <li>Arduino Nano 33 Sense BLE Rev 2</li>
+                    <li>Breadboard</li>
+                    <li>MOSFET transistor</li>
+                    <li>9v Battery</li>
+                    <li>3.7v LiPo Battery</li>
+                    <li>3 Watt Speaker</li>
+                    <li>Diode</li>
+                    <li>My tears</li>
+
+                </ul>
+            </div>
+            <img src="assets/box.JPG" style = "height: 500px" alt="Tech box">
+            
+        </div>
+        
+        <div class="image-block image-block-left">
+            <p>
+                <span style="color: #ff3b3b">The circuit schematic.</span>
+            </p>
+            <img style="padding: 10px" src="assets/A1_Scheme.svg" alt="Circuit Schematic">
+        </div>
+        
+        <div class="horizontal-flex">
+            <p>
+                I designed the box myself in Blender to fit all these parts while still being compact enough to get 
+                bolted under a skateboard. In case you didn’t know, they don’t have a lot of clearance between the bottom 
+                of the deck and the ground. I also needed it to be removable for testing and replacing batteries, 
+                but it had to be secure enough that it would at least stay on while I was riding it. The initial 
+                design included a locking pin, but it turned out that my tolerances were small enough that the 
+                friction alone did a good enough job of holding it all together.
+            </p>
+            <div id="3d-model-container" style="width: 50%; height: 400px;"></div>
+            <script type="module" src ="main.js"></script>
+        </div>
+
+        <p>
+            So, everything I need is in there, <span style="color: #ff3b3b">but how does it actually make any sound?</span> Well, when I started building it, I didn’t know. I figured most speakers seem to have 2 wires going
+            to them so it must be possible somehow. It was, I found some demo code written by Paul Badger [3] where he demonstrates how to create a square wave using the Arduino’s PWM capability. All that was left was 
+            working out the mapping between IMU data and sound frequency.
+        </p>
+        
+        <div class="image-block image-block image-block-list">
+            <div>
+                <p>
+                Accelerometers return a vector of G-force values for the x, y, z axis, since I set the sensitivity of the IMU to ± 4 G’s, I know I’ll always get a float in that range. Here’s the mapping I decided on:
+
+            </p>
+            <ul>
+                <li>X axis: Changes the note</li>
+                <li>Y axis: Changes the octave</li>
+                <li>Z axis: Perform a glissando from the current</li>
+            </ul>
+            </div>
+            
+            <img src="assets/drawing.JPG" alt="drawing">
+        </div>
+
+        <p>
+            <span style="color: #ff3b3b">Here’s the final sketch that I’m running:</span>
+        </p>
+        
+        <div class="code-container">
+            <pre>
+                <code>
+        #include "Arduino_BMI270_BMM150.h"
+        #define outpin 9   // audio out to speaker or amp
+        float notes[] = {
+        14080,    // A_note
+        14917.2,  // AS_note
+        15804.3,  // B_note
+        16744,    // C_note
+        17739.7,  // CS_note
+        18794.5,  // D_note
+        19912.1,  // DS_note
+        21096.2,  // E_note
+        22350.6,  // F_note
+        23679.6,  // FS_note
+        25087.7,  // G_note
+        26579.5,  // GS_note
+        28160,    // A2_note
+        29834.5,  // A2S_note
+        31608.5,  // B2_note
+        33488.1,  // C2_note
+        35479.4,  // C2S_note
+        37589.1,  // D2_note
+        39824.3,  // D2S_note
+        42192.3,  // E2_note
+        44701.2,  // F2_note
+        47359.3,  // F2S_note
+        50175.4,  // G2_note
+        53159,    // G2S_note
+        56320     // A3_note
+        };
+        //octaves  - corresponds to piano octaves
+        float oct8 = 4;
+        float oct7 = 8;
+        float oct6 = 16;
+        float oct5 = 32;
+        float oct4 = 64;
+        float oct3 = 128;
+        float oct2 = 256;
+        float oct1 = 512;
+        float oct0 = 1024;
+        float octs[] = {
+        4, //   8
+        8, //   7
+        16, //  6
+        32, //  5
+        64, //  4
+        128, // 3
+        256, // 2
+        512, // 1
+        1024 // 0
+        };
+        float note = 261.63; // start at middle c. This is the main note which will get changed,
+        int oct = oct3; // start in the third octave
+        float ax_note = note;
+        int current_note_index = 12;
+        int oct_index = 4;
+        void setup() {
+        //pinMode(outpin, OUTPUT);
+        Serial.begin(9600);
+        //while (!Serial);
+        Serial.println("Started");
+        if (!IMU.begin()) {
+        Serial.println("Failed to initialize IMU!");
+        while (1);
+        }
+        }
+        void loop(){
+        float ax, ay, az;
+        // Get the IMU data
+        if (IMU.accelerationAvailable()) {
+        IMU.readAcceleration(ax, ay, az);
+        //ax_note = map(ax, -4, 4, 0, 24);      // X axis
+        // Z axis
+        //oct = map(ay, -4, 4, 2, 6);           // y axis
+        }
+        if (ax &lt; -1 || ax &gt; 1 || az &gt; 2 || az &lt; 0.8 || ay &gt; 1 || ay &lt; -1) {
+        // Control the note
+        if (ax &gt; 1 || ax &lt; -1) {
+        int ax_index = map(ax, -4.0, 4.0, -4, 4);
+        current_note_index += ax_index;
+        current_note_index = constrain(current_note_index, 0, 24);
+        }
+        // Control the octave
+        if (ay &gt; 1 || ay &lt; -1) {
+        int ay_index = map(ay, -4.0, 4.0, -2, 2);
+        oct_index += ay_index;
+        oct_index = constrain(oct_index, 0, 7);
+        oct = octs[oct_index];
+        }
+        note = notes[current_note_index];
+        note = note / oct;
+        // Perform Glissando with the Z Axis
+        if (az &gt; 2 || az &lt; 0.8) {
+        long az_note = map(az, -4.0, 4.0, 10.0, 1000.0);
+        //int newNote = notes[az_note];
+        glissando((int)note, (int)az_note);
+        note = az_note;
+        }
+        Serial.print(note);
+        Serial.print((char)9);
+        Serial.print(current_note_index);
+        Serial.print((char)9);
+        Serial.print(oct_index);
+        Serial.print((char)9);
+        Serial.print(az);
+        Serial.print((char)9);
+        Serial.println(ay);
+        if (note &gt; 10 ) {
+        freqout((int)note, 1);
+        }
+        }
+        }
+        // Paul Badgers Freqout function
+        void freqout(int freq, int t)  // freq in hz, t in ms
+        {
+        int hperiod;                               //calculate 1/2 period in us
+        long cycles, i;
+        pinMode(outpin, OUTPUT);                   // turn on output pin
+        hperiod = (500000 / freq) - 7;             // subtract 7 us to make up for digitalWrite overhead
+        cycles = ((long)freq * (long)t) / 1000;    // calculate cycles
+        for (i=0; i&lt;= cycles; i++){              // play note for t ms
+        digitalWrite(outpin, HIGH);
+        delayMicroseconds(hperiod);
+        digitalWrite(outpin, LOW);
+        delayMicroseconds(hperiod - 1);     // - 1 to make up for digitaWrite overhead
+        }
+        pinMode(outpin, INPUT);                // shut off pin to avoid noise from other operations
+        }
+        void glissando(int startFreq, int endFreq) {
+        int duration = 25;     // Total duration of the glissando in milliseconds
+        int steps = 50;         // Number of frequency steps
+        int delayPerStep = duration / steps;  // Duration per frequency step
+        int freqIncrement = (endFreq - startFreq) / steps;
+        for (int i = 0; i &lt;= steps; i++) {
+        int currentFreq = startFreq + (freqIncrement * i);
+        freqout(currentFreq, delayPerStep);
+        }
+        }
+
+                </code>
+            </pre>
+        </div>
+        <h3>References</h3>
+        <p>[1] Joseph Malloch and Marcelo M. Wanderley. 2007. The T-Stick: from musical interface to musical instrument. In Proceedings of the 7th international conference on New interfaces for musical expression (NIME '07). Association for Computing Machinery, New York, NY, USA, 66–70. https://doi.org/10.1145/1279740.1279751</p>
+        <p>[2] Girl & Chocolate Skateboards. 2012. Pretty Sweet. </p>
+        <p>[3] Paul Badger. 2007. Audio Basics with Arduino. Retrieved from https://docs.arduino.cc/learn/programming/audio/</p>
+    </div>
+
+</body>
+</html>
