@@ -38,6 +38,7 @@ body {
     background-color: #ffffff;
 }
 h1 {
+    font-family: 'Cutive Mono', monospace;
     font-size: 3em;
     color: #f05b5b;
     text-align: left;
