@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research Participation Consent</title>
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --text: #222;
+      --muted: #5a5a6a;
+      --line: #e6e6ef;
+      --accent: #2b6cb0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text); background: var(--bg);
+    }
+    .wrap { max-width: 860px; margin: 40px auto; padding: 0 16px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+    header { padding: 24px 24px 0; }
+    header h1 { margin: 0 0 6px; font-size: 22px; }
+    header p { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+    form { padding: 8px 24px 24px; display: grid; gap: 16px; }
+    fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+    legend { padding: 0 6px; color: var(--muted); font-size: 13px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .row-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+    .muted { color: var(--muted); font-weight: 500; }
+    input[type="text"], input[type="email"], input[type="date"], textarea, select {
+      width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: #fff; font: inherit;
+    }
+    textarea { min-height: 90px; resize: vertical; }
+    .checkrow { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .checkrow label { font-weight: 500; margin: 0; }
+    .option { padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; }
+    .help { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .note { background: #f1f5ff; border: 1px solid #dbe7ff; color: #1e3a8a; padding: 10px 12px; border-radius: 10px; font-size: 14px; }
+    button {
+      appearance: none; border: 1px solid var(--accent); background: var(--accent); color: #fff; padding: 12px 16px; border-radius: 12px;
+      font-weight: 700; cursor: pointer; width: fit-content;
+    }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+    .footer { padding: 0 24px 20px; color: var(--muted); font-size: 12px; }
+    details summary { cursor: pointer; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <h1>Consent to Participate in Research</h1>
+        <p class="muted">Please read the information below and complete the fields. Items marked with * are required.</p>
+      </header>
+
+      <!-- Replace the value of data-redirect with your TestFlight / app URL -->
+      <form id="consentForm" action="https://script.google.com/macros/s/AKfycbzAnsS-PbKUHkS6B4LONwun3qMtXNUO4yt3DCv21S2vfG3FHNdACbTQXik4GtIUL9lvjg/exec" method="POST">
+
+        <!-- Study header: read-only info for participants (edit as needed) -->
+        <fieldset>
+          <legend>Study Information</legend>
+          <div class="row">
+            <div>
+              <label>Researcher</label>
+              <div class="muted">Ben Pearman — Faculty of Science, Dept. of Computer Science</div>
+              <div class="help">Email: ben.pearman@ucalgary.ca • Tel: +1 (403) 988-3045</div>
+            </div>
+            <div>
+              <label>Supervisor</label>
+              <div class="muted">Dr. Wesley Willett — Faculty of Science, Dept. of Computer Science</div>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Project Title</label>
+              <div class="muted">User Evaluation of Rock Climbers Using 3D Digital Topographies</div>
+            </div>
+            <div>
+              <label>REB Number</label>
+              <div class="muted">REB25-1062</div>
+            </div>
+          </div>
+          <p class="note">Participation is voluntary and anonymous. The University of Calgary Conjoint Faculties Research Ethics Board has approved this study.</p>
+            
+        <details>
+            <summary>Purpose of The Study</summary>
+            <div class="help" style="margin-top:8px">
+                The purpose of this study is to test a new 3D digital guide for rock climbing routes. We want to understand
+                whether this type of tool can help climbers plan, prepare, and execute on their climbs, and how it compares to the
+                guidebooks, photos, or apps that climbers already use. Your feedback will help us improve the tool and learn more
+                about how technology might support climbers in the future.
+
+            </div>
+        </details>
+        <details>
+            <summary>What Will I Be Asked To Do?</summary>
+            <div class="help" style="margin-top:8px">
+                You will be given access to a mobile app which has been designed to support you on the specific climbing route
+                you mentioned in the initial intake form which you responded to. You can use it during your usual planning or at
+                points on the climb where you would normally look at a guidebook or other climbing information. We will not be
+                present during your climb.
+                After you have had the chance to use the app, we will ask you to contact us. We will then invite you to complete a
+                short questionnaire (with questions like “How helpful did you find the app for planning your climb?”) and may
+                ask you to take part in a short interview (about 20–30 minutes) where you can share your thoughts about your
+                experience. We may also ask you to use the app during this interview so we can see how you preferred to use it,
+                and if you used it in the ways we anticipated. The interview may be audio-recorded so we can accurately capture
+                your feedback; the recording will be transcribed, de-identified, and then securely deleted.
+                1
+                All participation is completely voluntary. You may choose not to participate at all, skip any part of the study,
+                decline to answer any questions, or stop participating at any time. If you choose to stop, there will be no penalty
+                or loss of benefits — for example, your access to climbing resources or other services will not be affected.
+
+
+            </div>
+        </details>
+            
+        <details>
+            <summary>Are there Risks or Benefits if I Participate?</summary>
+            <div class="help" style="margin-top:8px">
+                There are no additional risks to you from participating in this study beyond those that are already part of normal
+                rock climbing. You will be climbing routes that you have chosen yourself, at times and places of your choosing.
+                The 3D application is designed to be used as a planning and navigation tool, similar to guidebooks or other
+                climbing apps. You will be advised to use it only when and where you would normally consult those types of
+                resources.
+                Possible benefits of participation include the opportunity to try out a new climbing tool that might help you
+                visualize and plan routes, as well as the chance to contribute feedback that could help improve this type of
+                technology for the climbing community. However, these benefits cannot be guaranteed.
+
+            </div>
+        </details>   
+        <details>
+            <summary>What Happens to the Information I Provide?</summary>
+            <div class="help" style="margin-top:8px">
+                Only the researchers involved in this study and their supervisor will have access to the information you provide.
+                This includes responses to questionnaires and any recordings or notes from interviews. Your name will not appear
+                on any of the data. Instead, we will use a code (or your chosen pseudonym) to keep your identity separate from
+                your responses. Any audio recordings from interviews will be transcribed, with all identifying information
+                removed, and the recordings will then be securely deleted.
+                2
+                The information you provide will be treated confidentially. Any results we share in presentations or publications
+                will only include summarized, anonymous information, so that no individual can be identified.
+                You are free to withdraw from the study at any time until we publish the paper containing the anonymous data. If
+                you choose to withdraw before that point (approximately 1 month from the data collection period), all data you
+                provided will be securely destroyed. Once the anonymous data has been included in a publication, it will no
+                longer be possible to remove individual data because it will not be linked to your identity.
+
+
+            </div>
+        </details>
+            
+        </fieldset>
+          
+
+        <fieldset>
+          <legend>Participant Details</legend>
+        <details>
+            <summary>What Type of Personal Information Will Be Collected?</summary>
+            <div class="help" style="margin-top:8px">
+                Should you agree to participate, you will be asked to provide details such as your age, as well as
+                information about your climbing history.
+                Following your usage of the application, we encourage you to reach out to us to participate in a short
+                questionnaire and a semi-structured interview where your responses will be recorded in some capacity.
+                There are several options for you to consider if you decide to take part in this research. You can choose all, some,
+                or none of them. Please review each of these options and choose Yes or No:
+
+
+            </div>
+        </details>
+          <div class="row">
+            <div>
+              <label for="p_name">Participant’s Name *</label>
+              <input id="p_name" name="participant_name" type="text" required />
+            </div>
+            <div>
+              <label for="p_email">Contact Email (optional)</label>
+              <input id="p_email" name="participant_email" type="email" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="p_age">Age (optional)</label>
+              <input id="p_age" name="participant_age" type="text" inputmode="numeric" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Consent Options</legend>
+
+          <div class="checkrow option" role="group" aria-labelledby="quoteLbl">
+            <label id="quoteLbl">You may quote me anonymously *</label>
+            <label><input type="radio" name="quote_ok" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="quote_ok" value="No" /> No</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Follow‑up & Results</legend>
+          <div class="option">
+            <label>Would you like to receive a summary of the study’s results? *</label>
+            <div class="checkrow">
+              <label><input type="radio" name="wants_results" value="Yes" required /> Yes</label>
+              <label><input type="radio" name="wants_results" value="No" /> No</label>
+            </div>
+            <label for="results_contact" class="muted">If yes, provide contact (email or phone)</label>
+            <input id="results_contact" name="results_contact" type="text" placeholder="email or phone" />
+          </div>
+          <div class="checkrow option" role="group" aria-labelledby="followLbl">
+            <label id="followLbl">Are you interested in being contacted about a follow‑up interview? *</label>
+            <label><input type="radio" name="followup_ok" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="followup_ok" value="No" /> No</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Acknowledgement</legend>
+          <p class="muted">By signing below, you confirm that you understand the study information and agree to participate. This does not waive your legal rights. You may withdraw at any time until publication of the anonymous data (approximately 1 month from data collection).</p>
+          <div class="row">
+            <div>
+              <label for="signature">Participant’s Signature (type your full name) *</label>
+              <input id="signature" name="participant_signature" type="text" required />
+            </div>
+            <div>
+              <label for="sig_date">Date *</label>
+              <input id="sig_date" name="participant_signature_date" type="date" required />
+            </div>
+          </div>
+  
+          <label class="checkrow"><input type="checkbox" id="consent_ack" required /> I have read and understood the information above and agree to participate.</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Questions / Concerns</legend>
+          <details>
+            <summary>Contact information</summary>
+            <div class="help" style="margin-top:8px">
+              Researcher: ben.pearman@ucalgary.ca • Supervisor: wesley.willett@ucalgary.ca<br/>
+              Research Ethics Analyst (University of Calgary): 403‑220‑6289 / 403‑220‑8640 • Email: cfreb@ucalgary.ca
+            </div>
+          </details>
+        </fieldset>
+
+        <button type="submit" id="submitBtn">Submit consent</button>
+        <div class="footer">After submission, you will be redirected to your app’s TestFlight link.</div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+
+    // Lightweight validation helpers to keep required conditional fields in sync with choices
+    const form = document.getElementById('consentForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    const wantsResults = form.elements['wants_results'];
+    const resultsContact = document.getElementById('results_contact');
+
+    function setConditionalRequirements() {
+
+      // contact required only if wants_results = Yes
+      const wantsResultsYes = [...form.querySelectorAll('input[name="wants_results"]')].some(r => r.checked && r.value === 'Yes');
+      resultsContact.required = wantsResultsYes;
+    }
+
+    form.addEventListener('change', setConditionalRequirements);
+    setConditionalRequirements();
+
+    form.addEventListener('submit', (e) => {
+      setConditionalRequirements();
+
+
+      // Simple client-side validity check for a nicer UX
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        // Let the browser show which field is invalid
+        form.reportValidity();
+        return false;
+      }
+      // Optional: disable button to prevent double-submit
+      submitBtn.disabled = true;
+    });
+  </script>
+</body>
+</html>
+
