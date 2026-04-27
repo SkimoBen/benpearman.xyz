@@ -29,7 +29,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     background:
         linear-gradient(to right, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.62) 34%, rgba(255, 255, 255, 0) 70%),
-        url('assets/title_bg.jpg');
+        url("assets/title_bg.jpg?v=2");
     background-size: cover;
     background-position: center;
 }
